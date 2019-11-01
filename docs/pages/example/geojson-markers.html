@@ -17,6 +17,7 @@ map.on('load', function () {
             "data": {
                 "type": "FeatureCollection",
                 "features": [{
+                    // feature for Mapbox DC
                     "type": "Feature",
                     "geometry": {
                         "type": "Point",
@@ -27,6 +28,7 @@ map.on('load', function () {
                         "icon": "monument"
                     }
                 }, {
+                    // feature for Mapbox SF
                     "type": "Feature",
                     "geometry": {
                         "type": "Point",
@@ -40,12 +42,15 @@ map.on('load', function () {
             }
         },
         "layout": {
+            // name of image in the style's sprite, where `icon` is pulled from properties.icon
             "icon-image": "{icon}-15",
+            // value to use for text label, where `title` is pulled from properties.title
             "text-field": "{title}",
             "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
             "text-offset": [0, 0.6],
             "text-anchor": "top"
         }
     });
+    
 });
 </script>
