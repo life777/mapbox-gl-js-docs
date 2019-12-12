@@ -1,7 +1,7 @@
 import React from 'react';
 import slug from 'slugg';
 import { prefixUrl } from '@mapbox/batfish/modules/prefix-url';
-import md from '@mapbox/batfish/modules/md';
+import md from '@mapbox/batfish/modules/md'; // eslint-disable-line
 import PageShell from '../components/page_shell';
 import entries from 'object.entries';
 import IconText from '@mapbox/mr-ui/icon-text';
@@ -31,7 +31,8 @@ export const plugins = {
         },
         'mapbox-gl-controls': {
             website: 'https://github.com/bravecow/mapbox-gl-controls',
-            description: 'alternative basic map controls'
+            description:
+                'Ruler control, Style inspector, Localization, Style switcher.'
         },
         'mapbox-gl-directions': {
             website: 'https://github.com/mapbox/mapbox-gl-directions',
@@ -52,11 +53,11 @@ export const plugins = {
         },
         'mapbox-gl-infobox': {
             website: 'https://github.com/el/infobox-control',
-            description: 'adds a control to display an infobox or a gradient'
+            description: 'Adds a control to display an infobox or a gradient'
         },
         'mapbox-gl-style-switcher': {
             website: 'https://github.com/el/style-switcher',
-            description: 'adds a control to switch between styles'
+            description: 'Adds a control to switch between styles'
         },
         'mapboxgl-minimap': {
             website: 'https://github.com/aesqe/mapboxgl-minimap',
@@ -84,6 +85,11 @@ export const plugins = {
             website: 'https://github.com/uber/deck.gl',
             description:
                 'Adds advanced WebGL visualization layers to Mapbox GL JS.'
+        },
+        L7: {
+            website: 'https://github.com/antvis/L7',
+            description:
+                'Adds large-scale WebGL-powered geospatial data visualization framework to Mapbox GL JS.'
         }
     },
     'Framework Integrations': {
@@ -143,7 +149,7 @@ Provides an [Ember](http://emberjs.com) integration for Mapbox GL JS.
         'expression-jamsession': {
             website: 'https://github.com/mapbox/expression-jamsession/',
             description: md`
-converts [Mapbox Studio formulas](https://www.mapbox.com/help/studio-manual-styles/#use-a-formula) into [expressions](https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions)
+Converts [Mapbox Studio formulas](https://www.mapbox.com/help/studio-manual-styles/#use-a-formula) into [expressions](https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions)
             `
         },
         'simplespec-to-gl-style': {
@@ -165,12 +171,12 @@ Converts GeoJSON styled with [\`simplestyle-spec\`](https://github.com/mapbox/si
         'mapbox-choropleth': {
             website: 'https://github.com/stevage/mapbox-choropleth',
             description:
-                'create a choropleth layer from a CSV source and a geometry source'
+                'Create a choropleth layer from a CSV source and a geometry source'
         },
         'mapbox-gl-utils': {
             website: 'https://github.com/stevage/mapbox-gl-utils',
             description:
-                'manage layers, sources and properties with syntactic sugar and convenience functions'
+                'Manage layers, sources and properties with syntactic sugar and convenience functions'
         }
     },
     'Development Tools': {
@@ -198,7 +204,7 @@ Is a [mock](https://en.wikipedia.org/wiki/Mock_object) of Mapbox GL JS.
     }
 };
 
-export default class extends React.Component {
+export default class Plugins extends React.Component {
     render() {
         return (
             <PageShell meta={meta}>
@@ -253,9 +259,7 @@ export default class extends React.Component {
                                                     <a
                                                         className="link link--blue"
                                                         href={prefixUrl(
-                                                            `/example/${
-                                                                plugin.example
-                                                            }`
+                                                            `/example/${plugin.example}`
                                                         )}
                                                     >
                                                         <IconText iconBefore="code">
